@@ -102,4 +102,32 @@ class ListaDinamica{
 		prom=suma/largo;
 		return prom;
 	}
+
+	public int busqueda_binaria(int dato,ListaDinamica l){
+		int largo=largoLista();
+		ordenar(largo);
+		int inf,sup,med,num;
+		inf=0;
+		sup=largo-1;
+		if (cabeza.getDato()==dato){
+			return 0;
+		}else if (dato==datoNodo(sup)){
+			return sup;
+		}
+	}
+	
+	public int datoNodo(int posicion){
+		NodoLista temp=cabeza;
+		int datoObtenido;
+		if (temp!=null){
+			int z=0;
+			while(z<=posicion){
+				temp=temp.sgte;
+				z++;
+			}
+			datoObtenido=temp.getDato();
+			return datoObtenido;
+		}
+		return -1;
+	}	
 }
