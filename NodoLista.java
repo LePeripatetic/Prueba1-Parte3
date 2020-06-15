@@ -14,4 +14,7 @@ class NodoLista{
 	public int getDato(){
 		return this.dato;
 	}
+	public void setDato(int d){
+		this.dato=d;
+	}
 }
