@@ -6,8 +6,11 @@ class Main{
 		L.insertar(30,2);
 		L.insertar(40,3);
 		L.mostrar();
-		float media = L.promedio();
-		System.out.print("El promedio de la lista es: ");
-		System.out.println(media);
+		int posicion =L.busqueda_binaria(30,L);
+		if (posicion==-1){
+			System.out.println("El elemento no se encuentra en la lista");			
+		}else{
+			System.out.println("El elemento se encuentra en la posicion: "+posicion);
+		}
 	}
 }
