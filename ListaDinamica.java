@@ -87,6 +87,25 @@ class ListaDinamica{
 		}
 		return i;
 	}
+	public void ordenar(int l){
+		
+		if (cabeza.sgte!=null){
+			for (int i=0;i<l;i++){
+				NodoLista actual=cabeza;
+				int valorTemp=cabeza.getDato();
+				while(actual.sgte!=null){
+					if (actual.getDato()>actual.sgte.getDato()){
+						actual.setDato(actual.sgte.getDato());
+						actual.sgte.setDato(valorTemp);
+					}else{
+						valorTemp=actual.sgte.getDato();
+					}
+					actual=actual.sgte;
+				}
+			}		
+		mostrar();
+		}
+	}
 
 	public float promedio(){
 		float suma=0;
@@ -113,7 +132,20 @@ class ListaDinamica{
 			return 0;
 		}else if (dato==datoNodo(sup)){
 			return sup;
+		}else{
+			while(inf!=sup){
+				med=(sup+inf)/2;
+				int datoMed=datoNodo(med);
+				if(dato==datoMed){
+					return med;
+				}else if (dato<datoMed) {
+					sup=med-1;
+				}else if (dato>datoMed){
+					inf=med +1;
+				}
+			}
 		}
+		return -1;
 	}
 	
 	public int datoNodo(int posicion){
